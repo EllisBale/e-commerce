@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+body {
+    @apply bg-zinc-900 text-zinc-100 antialiased min-h-screen overflow-x-hidden font-sans tracking-tight selection:bg-zinc-700 selection:text-white; 
+}
