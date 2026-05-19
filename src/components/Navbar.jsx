@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 const Navbar = () => {
     return(
         <nav className="absolute top-0 left-0 z-50 w-full after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 bg-[#222326] sm:bg-transparent backdrop-blur">
@@ -22,8 +25,8 @@ const Navbar = () => {
         </div>
         <div className="hidden sm:ml-6 sm:block text-[16px]">
           <div className="flex space-x-4">
-            <a href="#" aria-current="page" className="rounded-md px-3 py-2 font-medium text-white">Home</a>
-            <a href="#" className="rounded-md px-3 py-2 font-medium text-white-300 hover:bg-white/5 hover:text-white">Phones</a>
+            <Link to="/" className="rounded-md px-3 py-2 font-medium text-white">Home</Link>
+            <Link to="phones" className="rounded-md px-3 py-2 font-medium text-white-300 hover:bg-white/5 hover:text-white">Phones</Link>
             <a href="#" className="rounded-md px-3 py-2 font-medium text-white-300 hover:bg-white/5 hover:text-white">Features</a>
           </div>
         </div>
