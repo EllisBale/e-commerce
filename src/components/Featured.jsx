@@ -38,13 +38,13 @@ const Featured = () => {
                 {phones.slice(0,5).map((phone) => (
                 <li
                     key={phone.id}
-                    className="flex-shrink-0 w-3/4 sm:w-1/4  bg-black rounded-lg shadow-md p-4 flex flex-col items-center snap-start"
+                    className="flex-shrink-0 w-3/4 sm:w-1/3 bg-zinc-800 rounded-lg shadow-md p-4 flex flex-col items-center snap-start"
                 >
                     <img
                     src={phone.images[0]}
                     alt={phone.title}
                     draggable="false"
-                    className="w-full h-40 sm:h-100 sm:w-100 object-cover rounded-md mb-4"
+                    className="w-full h-100 sm:h-100 sm:w-100 object-cover rounded-md mb-4"
                     />
                     <h3 className="text-center text-lg font-medium">{phone.title}</h3>
                     <p>Price: {phone.price}</p>
