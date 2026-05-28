@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 
 const Featured = () => {
 
-    const [phones, setPhones] = useState([]);
+    const [FeaturedPhones, setFeaturedPhones] = useState([]);
 
 
-    const fetchPhones = async () => {
+    const fetchFeaturedPhones = async () => {
         try {
             const endpoint = 'https://dummyjson.com/products/category/smartphones';
 
@@ -19,7 +19,7 @@ const Featured = () => {
             const data = await response.json();
             console.log(data);
 
-            setPhones(data.products);
+            setFeaturedPhones(data.products);
 
         } catch (e) {
             console.error("Error fetching phones:", e)
@@ -27,7 +27,7 @@ const Featured = () => {
     };
 
     useEffect(() => {
-        fetchPhones();
+        fetchFeaturedPhones();
     }, [])
 
 
@@ -35,7 +35,7 @@ const Featured = () => {
         <div className="mx-auto flex flex-col justify-center my-10">
             <h2 className="text-center text-3xl font-semibold mb-6">Featured</h2>
             <ul className="flex flex-row gap-4 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-600 snap-x snap-mandatory animate-fadein cursor-pointer">
-                {phones.slice(0,5).map((phone) => (
+                {FeaturedPhones.slice(0,5).map((phone) => (
                 <li
                     key={phone.id}
                     className="flex-shrink-0 w-3/4 sm:w-1/3 bg-zinc-800 rounded-lg shadow-md p-4 flex flex-col items-center snap-start"
