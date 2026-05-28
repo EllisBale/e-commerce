@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="relative overflow-hidden min-h-screen flex flex-col lg:flex-row" >
@@ -39,10 +41,10 @@ const Header = () => {
             <h1 className="text-4xl font-bold text-shadow-white-950">
               Premium Smartphones
             </h1>
-            <p className="text-xl leading-[2]">Sophisticated engineering, crafted without compromise.</p>
-            <button className="bg-purple-700 hover:bg-purple-600 text-white mt-4 py-3 px-4 rounded-full cursor-pointer transition-transform duration-200 hover:scale-110">
+            <p className="text-xl mb-5 leading-[2]">Sophisticated engineering, crafted without compromise.</p>
+            <Link to="/phones" className=" bg-purple-700 hover:bg-purple-600 text-white mt-4 py-3 px-4 rounded-full cursor-pointer transition-transform duration-200 hover:scale-110">
               Browse
-            </button>
+            </Link>
           </div>
         </div>
       </div>
