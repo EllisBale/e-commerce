@@ -32,7 +32,8 @@ const Featured = () => {
 
 
     return (
-        <div className="mx-auto flex flex-col justify-center my-10">
+        <>
+        <div className="mx-auto flex flex-col justify-center my-10 lg:hidden">
             <h2 className="text-center text-3xl font-semibold mb-6">Featured</h2>
             <ul className="flex flex-row gap-4 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-600 snap-x snap-mandatory animate-fadein cursor-pointer">
                 {FeaturedPhones.slice(0,5).map((phone) => (
@@ -51,7 +52,31 @@ const Featured = () => {
                 </li>
                 ))}
             </ul>
-    </div>
+        </div>
+
+        <div className="hidden lg:flex mx-auto flex-col justify-center my-10">
+            <h2 className="text-center text-3xl font-semibold mb-6">Featured</h2>
+            <ul className="grid grid-cols-3 gap-6 w-full">
+                {FeaturedPhones.slice(0, 6).map((phone) => (
+                <li
+                    key={phone.id}
+                    className="bg-zinc-800 rounded-lg shadow-md p-4 flex flex-col items-center"
+                >
+                    <img
+                    src={phone.images[0]}
+                    alt={phone.title}
+                    draggable="false"
+                    className="w-full h-full object-cover rounded-md mb-4"
+                    />
+                    <h3 className="text-center text-lg font-medium">{phone.title}</h3>
+                    <p>Price: {phone.price}</p>
+                </li>
+                ))}
+            </ul>
+        </div>
+        </>
+
+
     );
 
 };
