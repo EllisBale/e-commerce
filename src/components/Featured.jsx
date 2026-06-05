@@ -13,7 +13,7 @@ const Featured = () => {
             const response = await fetch(endpoint)
             
             if (!response.ok) {
-                throw new Error("Failed to fetch products.");
+                throw new Error("Failed to fetch smartphones.");
             }
 
             const data = await response.json();

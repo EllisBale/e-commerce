@@ -1,20 +1,31 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getPhones } from "../data/products";
+
 
 const Phones = () => {
 
     const [phones, setPhones] = useState([]);
 
-    useEffect(() => {
-        const fetchPhones = async () => {
+    const fetchPhones = async () => {
             try {
-                const data = await getPhones();
+
+                const endpoint = 'https://dummyjson.com/products/category/smartphones';
+
+                const response = await fetch(endpoint)
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch smartphones.");
+                }
+                
+                const data = await response.json();
                 setPhones(data.products);
+
             } catch (e) {
-                console.error(e)
+                console.error("Error fetching smartphones:", e);
             }
-        };
+    };
+
+    useEffect(() => {
         fetchPhones();
     }, [] )
 
