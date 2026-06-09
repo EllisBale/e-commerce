@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="relative overflow-hidden min-h-screen flex flex-col lg:flex-row" >
+    <header className="relative overflow-hidden min-h-screen flex flex-col lg:flex-row rounded-b-[5%]" >
 
       {/* IMAGE */}
       <picture className="relative w-full h-[50vh] lg:absolute lg:h-full select-none">

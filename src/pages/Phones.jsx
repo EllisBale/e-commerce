@@ -29,6 +29,9 @@ const Phones = () => {
         fetchPhones();
     }, [] )
 
+
+    if (!phones) return <p>Loading...</p>
+
     return(
         <div className="mt-[200px] mb-[30px] mx-2 lg:mx-50">
             <h1 className="text-4xl font-bold text-shadow-white-950 mb-10">Explore Our Variety Of Smartphones</h1>
