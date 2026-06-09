@@ -49,7 +49,8 @@ const Featured = () => {
                         className="w-full h-100 sm:h-100 sm:w-100 object-cover rounded-md mb-4"
                         />
                     </Link>
-                    <h3 className="text-center text-lg font-medium">{phone.title}</h3>
+                    <h3 className="text-center text-lg font-medium mb-2">{phone.title}</h3>
+                    <p className="mb-2">⭐ {phone.rating}</p>
                     <p className="mb-5">Price: {phone.price}</p>
                     <Link to={`/phones/${phone.id}`} className="mt-auto block w-full text-white bg-gradient-to-br from-purple-600 rounded-full py-4 m to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
                         Buy
@@ -69,13 +70,14 @@ const Featured = () => {
                 >
                     <Link to={`/phones/${phone.id}`}>
                         <img
-                        src={phone.images[0]}
+                        src={phone.thumbnail}
                         alt={phone.title}
                         draggable="false"
                         className="w-full h-full object-cover rounded-md mb-4"
                         />
                     </Link>
-                    <h3 className="text-center text-lg font-medium">{phone.title}</h3>
+                    <h3 className="text-center text-lg font-medium mb-2">{phone.title}</h3>
+                    <p className="mb-2">⭐ {phone.rating}</p>
                     <p className="mb-5">Price: {phone.price}</p>
                     <Link to={`/phones/${phone.id}`} className="mt-auto block w-full text-white bg-gradient-to-br from-purple-600 rounded-full py-4 m to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
                            Buy

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return(
-        <nav className="absolute top-0 left-0 z-50 w-full after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 bg-[#222326] sm:bg-transparent backdrop-blur">
+        <nav className=" top-0 left-0 z-50 w-full after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 bg-[#222326] sm:bg-transparent backdrop-blur">
   <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div className="relative flex h-16 items-center justify-between">
       <div className="relative inset-y-0 left-0 flex items-center justify-between sm:hidden">
