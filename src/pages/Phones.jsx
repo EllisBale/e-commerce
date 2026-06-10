@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const Phones = () => {
@@ -33,14 +33,14 @@ const Phones = () => {
     if (!phones) return <p>Loading...</p>
 
     return(
-        <div className="mt-[200px] mb-[30px] mx-2 lg:mx-50">
+        <div className="mt-[100px] mb-[30px] mx-2 lg:mx-50">
             <h1 className="text-4xl font-bold text-shadow-white-950 mb-10">Explore Our Variety Of Smartphones</h1>
             <div className="grid grid-cols-12 gap-4 text-center">
                 {phones.map((phone) => (
                     <div key={phone.id} className="flex flex-col col-span-6 md:col-span-4 xl:col-span-3 bg-zinc-800 rounded-lg shadow-md p-10">
                         <Link to={`/phones/${phone.id}`}>
                         <img
-                            src={phone.images[0]}
+                            src={phone.images?.[0] ?? "image"}
                             alt={phone.title}
                             draggable="false"
                             className="w-full h-50 sm:h-100 sm:w-full object-cover rounded-md mb-4"

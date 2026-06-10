@@ -43,9 +43,9 @@ const Details = () => {
                     <img src={phone.images[0]} alt={phone.title} className="object-cover"/>
                 </div>
                 <div className="lg:w-1/2 flex flex-col">
-                    <h1 className="text-center text-4xl font-bold text-shadow-white-950 mb-5">{phone.title}</h1>
+                    <h1 className="text-center text-4xl font-bold text-shadow-white-950 my-5">{phone.title}</h1>
                     <p className="text-xl text-center p-10">{phone.description}</p>
-                    <button className="cursor-pointer mx-auto w-100 text-white bg-gradient-to-br from-purple-600 rounded-full py-4 m to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
+                    <button className="cursor-pointer mx-auto min-w-50  text-white bg-gradient-to-br from-purple-600 rounded-full py-4 m to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
                         Buy
                     </button>
                 </div>
