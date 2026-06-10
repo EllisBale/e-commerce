@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../components/Spinner";
 
 
 const Phones = () => {
 
     const [phones, setPhones] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+
 
     const fetchPhones = async () => {
             try {
@@ -19,9 +23,12 @@ const Phones = () => {
                 
                 const data = await response.json();
                 setPhones(data.products);
+                setLoading(false);
 
             } catch (e) {
                 console.error("Error fetching smartphones:", e);
+            } finally {
+                setLoading(false);
             }
     };
 
@@ -30,7 +37,11 @@ const Phones = () => {
     }, [] )
 
 
-    if (!phones) return <p>Loading...</p>
+    if (loading) {
+            return (
+                <Spinner />
+            )
+    }
 
     return(
         <div className="mt-[100px] mb-[30px] mx-2 lg:mx-50">

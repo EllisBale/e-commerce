@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "../components/Spinner";
 
 
 const Details = () => {
 
      const [phone, setPhone] = useState(null);
+
+     const [loading, setLoading] = useState(true)
 
      const { id } = useParams();
 
@@ -22,9 +25,12 @@ const Details = () => {
                 const data = await response.json();
                 
                 setPhone(data);
+                setLoading(false);
                 
             } catch (e) {
                 console.error("Error fetching smartphones:", e);
+            } finally {
+                setLoading(false);
             }
     };
 
@@ -33,7 +39,12 @@ const Details = () => {
     }, [id] )
 
 
-    if (!phone) return <p className="mt-[80px]">Loading...</p>
+        if (loading) {
+            return (
+                <Spinner />
+            )
+      
+        }
     
 
     return (

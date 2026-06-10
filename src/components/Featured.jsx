@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner";
 
 const Featured = () => {
 
     const [FeaturedPhones, setFeaturedPhones] = useState([]);
+
+    const [loading, setLoading] = useState(true);
 
 
     const fetchFeaturedPhones = async () => {
@@ -20,15 +23,26 @@ const Featured = () => {
             console.log(data);
 
             setFeaturedPhones(data.products);
+            setLoading(false)
 
         } catch (e) {
             console.error("Error fetching phones:", e)
+        } finally {
+            setLoading(false);
         }
     };
 
     useEffect(() => {
         fetchFeaturedPhones();
     }, [])
+
+
+            if (loading) {
+            return (
+                <Spinner />
+            )
+      
+        }
 
 
     return (
