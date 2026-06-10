@@ -36,10 +36,9 @@ const Navbar = () => {
 
   <el-disclosure id="mobile-menu" hidden className="block sm:hidden">
     <div className="space-y-1 px-2 pt-2 pb-3">
-      <a href="#" aria-current="page" className="block rounded-md px-3 py-2 text-base font-medium text-white">Dashboard</a>
-      <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
-      <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-      <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
+      <Link to="/" className="block rounded-md px-3 py-2 text-base font-medium text-white">Home</Link>
+      <Link to="phones"  className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Phones</Link>
+      <a href="#"  className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Features</a>
     </div>
   </el-disclosure>
 </nav>
