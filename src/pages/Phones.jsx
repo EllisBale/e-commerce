@@ -8,6 +8,8 @@ const Phones = () => {
 
     const [phones, setPhones] = useState([]);
 
+    const [sortOrder, setSortOrder] = useState("default");
+
     const [loading, setLoading] = useState(true);
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -51,9 +53,15 @@ const Phones = () => {
             )
     }
 
-    const filteredPhones = phones.filter((phone) =>
-        phone.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredPhones = phones
+        .filter((phone) =>  phone.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    const sortedAndFilteredPhones = sortOrder === "highest" 
+    ? [...filteredPhones].sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    : filteredPhones;
+
+
 
  
     return(
@@ -62,13 +70,19 @@ const Phones = () => {
                 <h1 className="text-4xl font-bold text-shadow-white-950 mb-10">Explore Our Variety Of Smartphones</h1>
                 <Search setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
             </div>
+             <button 
+                onClick={() => setSortOrder(sortOrder === "default" ? "highest" : "default")}
+                className="bg-purple-600 text-white px-4 py-2 mb-5 rounded-md hover:bg-purple-700 transition"
+            >
+                {sortOrder === "highest" ? "Sort: Highest Rating" : "Sort: Default"}
+            </button>
             <div className="grid grid-cols-12 gap-4 text-center">
-                {filteredPhones.length === 0 ? (
+                {sortedAndFilteredPhones.length === 0 ? (
                 <div className="flex flex-row col-span-12 justify-center">
                     <h2 className="text-xl font-bold text-shadow-white-950 mb-10">No Smartphones match Your Search.</h2>
                 </div>
                 ) : (
-                    filteredPhones.map((phone) => (
+                    sortedAndFilteredPhones.map((phone) => (
                         <div key={phone.id} className="flex flex-col col-span-6 md:col-span-4 xl:col-span-3 bg-zinc-800 rounded-lg shadow-md p-10">
                             <Link to={`/phones/${phone.id}`}>
                             <img
