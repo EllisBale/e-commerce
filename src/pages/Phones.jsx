@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Spinner from "../components/Spinner";
 import Search from "../components/Search";
 
@@ -84,6 +85,13 @@ const Phones = () => {
                 ) : (
                     sortedAndFilteredPhones.map((phone) => (
                         <div key={phone.id} className="flex flex-col col-span-6 md:col-span-4 xl:col-span-3 bg-zinc-800 rounded-lg shadow-md p-10">
+                            <motion.div
+        
+                                initial={{ opacity: 0, y: 50, x: -5 }}
+                                whileInView={{ opacity: 1, y: 0, x: 0 }}
+                                transition={{ duration: 0.6 }} 
+                                viewport={{once: true}}
+                            >
                             <Link to={`/phones/${phone.id}`}>
                             <img
                                 src={phone.images?.[0] ?? "image"}
@@ -98,6 +106,7 @@ const Phones = () => {
                             <Link to={`/phones/${phone.id}`} className="mt-auto block w-full text-white bg-gradient-to-br from-purple-600 rounded-full py-4 m to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
                             Buy
                             </Link>
+                            </motion.div>
                         </div>
                     ))
                 )}

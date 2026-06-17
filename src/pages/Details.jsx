@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import Spinner from "../components/Spinner";
 
 
@@ -51,7 +53,15 @@ const Details = () => {
         <div className="my-[80px] flex justify-center">
             <div key={phone.id} className="flex flex-col lg:flex-row gap-1 w-full">
                 <div className="lg:w-1/2">
+                     <motion.div
+        
+                                initial={{ opacity: 0, y: 200, x: -5 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1 }} 
+                                viewport={{once: true}}
+                            >
                     <img src={phone.images[0]} alt={phone.title} className="object-cover"/>
+                    </motion.div>
                 </div>
                 <div className="lg:w-1/2 flex flex-col">
                     <h1 className="text-center text-4xl font-bold text-shadow-white-950 my-5">{phone.title}</h1>

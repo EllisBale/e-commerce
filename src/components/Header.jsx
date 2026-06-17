@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
+    <motion.div
+        
+                                initial={{ opacity: 0, y: 0, x: -200 }}
+                                whileInView={{ opacity: 1, y: 0, x: 0 }}
+                                transition={{ duration: 0.5 }} 
+                                viewport={{once: true}}
+                            >
     <header className="relative overflow-hidden min-h-screen flex flex-col lg:flex-row rounded-b-[5%]" >
-
       {/* IMAGE */}
       <picture className="relative w-full h-[50vh] lg:absolute lg:h-full select-none">
         <source
@@ -15,6 +22,7 @@ const Header = () => {
             /images/phone_header.png 1600w
           "
         />
+        
 
         <img
           src="/images/phone_header_1200.png"
@@ -50,6 +58,7 @@ const Header = () => {
       </div>
       
     </header>
+    </motion.div>
   );
 };
 
