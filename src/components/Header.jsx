@@ -10,7 +10,7 @@ const Header = () => {
                                 transition={{ duration: 0.5 }} 
                                 viewport={{once: true}}
                             >
-    <header className="relative overflow-hidden min-h-screen flex flex-col lg:flex-row rounded-b-[5%]" >
+    <header className="relative overflow-hidden min-h-screen flex flex-col lg:flex-row " >
       {/* IMAGE */}
       <picture className="relative w-full h-[50vh] lg:absolute lg:h-full select-none">
         <source

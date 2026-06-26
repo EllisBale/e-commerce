@@ -15,6 +15,8 @@ const Phones = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
 
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+
 
     const fetchPhones = async (query) => {
             try {
@@ -41,12 +43,23 @@ const Phones = () => {
     };
 
     useEffect(() => {
-        fetchPhones(searchTerm);
+
+        const timerId = setTimeout(() => {
+            setDebouncedSearchTerm(searchTerm);
+
+        }, 500);
+
+        return () => {
+            clearTimeout(timerId);
+        };
+
     }, [searchTerm] );
 
     
     
-
+useEffect(() => {
+        fetchPhones(debouncedSearchTerm);
+    }, [debouncedSearchTerm]);
 
     if (loading) {
             return (
@@ -103,7 +116,7 @@ const Phones = () => {
                             <h3 className="text-center text-lg font-medium mb-2">{phone.title || "Phone"}</h3>
                             <p className="mb-2">⭐ {phone.rating}</p>
                             <p className="mb-5">£{phone.price}</p>
-                            <Link to={`/phones/${phone.id}`} className="mt-auto block w-full text-white bg-gradient-to-br from-purple-600 rounded-full py-4 m to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
+                            <Link to={`/phones/${phone.id}`} className="mt-auto block w-full text-white border border-white bg-transparent from-purple-400 rounded-full py-4  focus:ring-4  focus:ring-blue-300 dark:focus:ring-purple-800 font-medium rounded-base text-sm px-2 py-2.5 text-center leading-5">
                             Buy
                             </Link>
                             </motion.div>
